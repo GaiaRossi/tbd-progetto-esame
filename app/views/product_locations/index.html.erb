@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Product locations</h1>
+
+<div id="product_locations">
+  <% @product_locations.each do |product_location| %>
+    <%= render product_location %>
+    <p>
+      <%= link_to "Show this product location", product_location %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New product location", new_product_location_path %>
