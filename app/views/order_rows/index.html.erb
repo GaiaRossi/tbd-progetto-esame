@@ -3,12 +3,20 @@
 <h1>Order rows</h1>
 
 <div id="order_rows">
+<table class="table">
+  <tr>
+    <th>Order id</th>
+    <th>Username</th>
+    <th>Product</th>
+    <th>Quantity</th>
+    <th>Action</th>
+  </tr>
   <% @order_rows.each do |order_row| %>
-    <%= render order_row %>
-    <p>
-      <%= link_to "Show this order row", order_row %>
-    </p>
+    <tr>
+      <%= render order_row %>
+    </tr>
   <% end %>
+</table>
 </div>
 
 <%= link_to "New order row", new_order_row_path %>

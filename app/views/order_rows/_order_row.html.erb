@@ -1,22 +1,22 @@
 <div id="<%= dom_id order_row %>">
-  <p>
-    <strong>Order:</strong>
+  <td>
     <%= order_row.order_id %>
-  </p>
+  </td>
 
-  <p>
-    <strong>User:</strong>
+  <td>
     <%= order_row.order.user.username %>
-  </p>
+  </td>
 
-  <p>
-    <strong>Product:</strong>
+  <td>
     <%= order_row.product.name %>
-  </p>
+  </td>
 
-  <p>
-    <strong>Quantity:</strong>
+  <td>
     <%= order_row.quantity %>
-  </p>
+  </td>
+
+  <td>
+    <%= link_to "Show this order row", order_row %>
+  </td>
 
 </div>
