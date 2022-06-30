@@ -5,23 +5,36 @@
 <div id="orders">
   <table class="table">
     <tr>
+      <th>Order id</th>
       <th>Order date</th>
-      <th>User id</th>
+      <th>User</th>
+      <th>Products</th>
       <th>Action</th>
     </tr>
     <% @orders.each do |order| %>
       <tr>
-      <td>
-        <%= order.date %>
-      </td>
+        <td>
+          <%= order.id %>
+        </td>
+        <td>
+          <%= order.date %>
+        </td>
 
-      <td>
-        <%= order.user_id %>
-      </td>
+        <td>
+          <%= order.user.username %>
+        </td>
 
-      <td>
-        <%= link_to "Show this order", order %>
-      </td>
+        <td>
+          <ul>
+            <% order.order_row.each do |order_row| %>
+              <li><%= order_row.product.name %></li>
+            <% end %>
+          </ul> 
+        </td>
+
+        <td>
+          <%= link_to "Show this order", order %>
+        </td>
       </tr>
       
     <% end %>

@@ -5,15 +5,15 @@
 <div id="reviews">
   <table class="table">
     <tr>
-      <th>Text</th>
-      <th>Product</th>
       <th>User</th>
+      <th>Product</th>
+      <th>Text</th>
       <th>Action</th>
     </tr>
     <% @reviews.each do |review| %>
       <tr>
         <td>
-          <%= review.text %>
+          <%= review.user.username %>
         </td>
 
         <td>
@@ -21,8 +21,9 @@
         </td>
 
         <td>
-          <%= review.user.username %>
+          <%= review.text %>
         </td>
+        
         <td>
           <%= link_to "Show this review", review %>
         </td>
