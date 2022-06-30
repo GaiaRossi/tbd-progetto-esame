@@ -3,12 +3,32 @@
 <h1>Products</h1>
 
 <div id="products">
-  <% @products.each do |product| %>
-    <%= render product %>
-    <p>
-      <%= link_to "Show this product", product %>
-    </p>
-  <% end %>
+  <table class="table">
+    <tr>
+      <th>Product</th>
+      <th>Description</th>
+      <th>Price</th>
+      <th>Action</th>
+    </tr>
+    <% @products.each do |product| %>
+      <tr>
+        <td>
+          <%= product.name %>
+        </td>
+
+        <td>
+          <%= product.description %>
+        </td>
+
+        <td>
+          <%= product.price %>
+        </td>
+        <td>
+          <%= link_to "Show this product", product %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
 </div>
 
 <%= link_to "New product", new_product_path %>

@@ -3,12 +3,32 @@
 <h1>Reviews</h1>
 
 <div id="reviews">
-  <% @reviews.each do |review| %>
-    <%= render review %>
-    <p>
-      <%= link_to "Show this review", review %>
-    </p>
-  <% end %>
+  <table class="table">
+    <tr>
+      <th>Text</th>
+      <th>Product</th>
+      <th>User</th>
+      <th>Action</th>
+    </tr>
+    <% @reviews.each do |review| %>
+      <tr>
+        <td>
+          <%= review.text %>
+        </td>
+
+        <td>
+          <%= review.product.name %>
+        </td>
+
+        <td>
+          <%= review.user.username %>
+        </td>
+        <td>
+          <%= link_to "Show this review", review %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
 </div>
 
 <%= link_to "New review", new_review_path %>
