@@ -3,12 +3,29 @@
 <h1>Orders</h1>
 
 <div id="orders">
-  <% @orders.each do |order| %>
-    <%= render order %>
-    <p>
-      <%= link_to "Show this order", order %>
-    </p>
-  <% end %>
+  <table class="table">
+    <tr>
+      <th>Order date</th>
+      <th>User id</th>
+      <th>Action</th>
+    </tr>
+    <% @orders.each do |order| %>
+      <tr>
+      <td>
+        <%= order.date %>
+      </td>
+
+      <td>
+        <%= order.user_id %>
+      </td>
+
+      <td>
+        <%= link_to "Show this order", order %>
+      </td>
+      </tr>
+      
+    <% end %>
+    </table>
 </div>
 
 <%= link_to "New order", new_order_path %>
