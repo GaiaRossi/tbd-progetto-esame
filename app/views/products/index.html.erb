@@ -8,6 +8,7 @@
       <th>Product</th>
       <th>Description</th>
       <th>Price</th>
+      <th>Warehouse</th>
       <th>Action</th>
     </tr>
     <% @products.each do |product| %>
@@ -22,6 +23,13 @@
 
         <td>
           <%= product.price %>
+        </td>
+        <td>
+          <ul>
+            <% product.warehouse.each do |w| %>
+              <li><%= w.name %></li>
+            <% end %>
+          </ul>
         </td>
         <td>
           <%= link_to "Show this product", product %>
