@@ -27,6 +27,25 @@
   </div>
 
   <div>
+    
+  </div>
+
+  <div>
+    <%= form.label :warehouses, style: "display: block" %>
+    <% Warehouse.all.each do |w| %>
+      <div>
+        <%= form.fields_for :product_location, product.product_location.build do |product_location_fields| %>
+          <%= w.name %>
+          <%= product_location_fields.label :quantity, style: "display: block" %>
+          <%= product_location_fields.text_field :quantity %>
+        <% end %>
+      </div>
+    <% end %>
+
+    
+  </div>
+
+  <div>
     <%= form.submit %>
   </div>
 <% end %>
