@@ -1,2 +1,7 @@
-<h1>Benvenuto</h1>
-<p>Welcome</p>
+
+<% if params[:error] %>
+    <h1>Error</h1>
+    <%= params[:error] %>
+<% else %>
+    <h1>Benvenuto</h1>
+<% end %>

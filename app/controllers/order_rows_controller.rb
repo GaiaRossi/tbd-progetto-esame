@@ -23,15 +23,22 @@ class OrderRowsController < ApplicationController
   def create
     @order_row = OrderRow.new(order_row_params)
 
+    
     respond_to do |format|
-      if @order_row.save
-        format.html { redirect_to order_row_url(@order_row), notice: "Order row was successfully created." }
-        format.json { render :show, status: :created, location: @order_row }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @order_row.errors, status: :unprocessable_entity }
+      begin
+        if @order_row.save
+          format.html { redirect_to order_row_url(@order_row), notice: "Order row was successfully created." }
+          format.json { render :show, status: :created, location: @order_row }
+        else
+          format.html { render :new, status: :unprocessable_entity }
+          format.json { render json: @order_row.errors, status: :unprocessable_entity }
+        end
+      rescue ActiveRecord::RecordNotUnique
+        format.html { redirect_to root_url(error: "Order row already exists.") }
+        format.json { redirect_to root_url, status: :created, location: @order_row }
       end
     end
+    
   end
 
   # PATCH/PUT /order_rows/1 or /order_rows/1.json
