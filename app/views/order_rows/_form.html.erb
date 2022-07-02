@@ -13,7 +13,7 @@
 
   <div>
     <%= form.label :order_id, style: "display: block" %>
-    <%= form.number_field :order_id %>
+    <%= form.text_field :order_id, :value => params[:order_id], :readonly => true%>
   </div>
 
   <div>
