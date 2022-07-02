@@ -31,11 +31,12 @@
   </div>
 
   <div>
-    <%= form.label :warehouses, style: "display: block" %>
+  <%= form.label :Warehouses, style: "display: block" %>
     <% Warehouse.all.each do |w| %>
       <div>
         <%= form.fields_for :product_location, product.product_location.build do |product_location_fields| %>
-          <%= w.name %>
+          <%= product_location_fields.label w.name, style: "display: block" %>
+          <%= product_location_fields.text_field :warehouse_id, :value => w.id, :hidden => true%>
           <%= product_location_fields.label :quantity, style: "display: block" %>
           <%= product_location_fields.text_field :quantity %>
         <% end %>
