@@ -18,7 +18,7 @@
 
   <div>
     <%= form.label :product_id, style: "display: block" %>
-    <%= form.number_field :product_id %>
+    <%= form.collection_select(:product_id, Product.all, :id, :name, :prompt => true) %>
   </div>
 
   <div>

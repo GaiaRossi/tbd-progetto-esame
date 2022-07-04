@@ -18,12 +18,12 @@
 
   <div>
     <%= form.label :product_id, style: "display: block" %>
-    <%= form.number_field :product_id %>
+    <%= form.collection_select(:product_id, Product.all, :id, :name, :prompt => true) %>
   </div>
 
   <div>
     <%= form.label :user_id, style: "display: block" %>
-    <%= form.number_field :user_id %>
+    <%= form.collection_select(:user_id, User.all, :id, :username, :prompt => true) %>
   </div>
 
   <div>
