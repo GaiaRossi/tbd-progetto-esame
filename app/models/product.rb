@@ -7,6 +7,6 @@ class Product < ApplicationRecord
     accepts_nested_attributes_for :product_location, :reject_if => :quantity_blank
 
     def quantity_blank(q)
-        q[:quantity].blank?
+        return q[:quantity].blank?
     end
 end
